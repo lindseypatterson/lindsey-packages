@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lindsey Patterson | Creative Business Strategist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue-light: #d5e9f6;
+            --rust: #641a03;
+            --red: #e60027;
+            --red-light: #e60027;
+            --beige: #fff9f1;
+            --cream: #ebe6dc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Text', serif;
+            background: var(--beige);
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Decorative background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(213, 233, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(230, 0, 39, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            background: linear-gradient(135deg, var(--blue-light) 0%, rgba(213, 233, 246, 0.4) 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: var(--beige);
+            clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 100%);
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            color: var(--rust);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
+        }
+        
+        .hero .subtitle {
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--rust);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+        
+        .hero .tagline {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--red-light);
+            font-style: normal;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-weight: 700;
+            font-family: 'Libre Baskerville', serif;
+            letter-spacing: 0.03em;
+            text-transform: none;
+        }
+        
+        .pricing-banner {
+            background: var(--rust);
+            color: white;
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-family: 'Libre Baskerville', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(100, 26, 3, 0.3);
+            margin-top: 1rem;
+        }
+        
+        .pricing-banner .divider {
+            margin: 0 1rem;
+            opacity: 0.7;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--red);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(230, 0, 39, 0.3);
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            letter-spacing: 0.02em;
+            animation: pulse-cta 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-cta {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(230, 0, 39, 0.3);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 15px 40px rgba(230, 0, 39, 0.5);
+            }
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(230, 0, 39, 0.5);
+            background: #ff0d3a;
+            animation: none;
+        }
+        
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+        
+        /* Intro Section */
+        .intro {
+            max-width: 1000px;
+            margin: 6rem auto 4rem;
+            padding: 0 2rem;
+            text-align: center;
+            animation: fadeIn 1s ease-out 0.3s both;
+            position: relative;
+        }
+        
+        .intro::before {
+            content: '★';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            color: var(--red);
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0.6;
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1.2);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--rust);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .intro p {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        /* Package Grid */
+        .packages-container {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem 4rem;
+        }
+        
+        .package {
+            margin-bottom: 4rem;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            animation: slideIn 0.6s ease-out both;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .package:nth-child(1) { animation-delay: 0.1s; }
+        .package:nth-child(2) { animation-delay: 0.2s; }
+        .package:nth-child(3) { animation-delay: 0.3s; }
+        .package:nth-child(4) { animation-delay: 0.4s; }
+        .package:nth-child(5) { animation-delay: 0.5s; }
+        
+        .package:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+        }
+        
+        .package-header {
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--blue-light) 0%, rgba(213, 233, 246, 0.6) 100%);
+            position: relative;
+            overflow: hidden;
+            border-top: 6px solid var(--red);
+        }
+        
+        .package-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            transform: translate(30%, -30%);
+        }
+        
+        .package-emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+            position: relative;
+            animation: wiggle 3s ease-in-out infinite;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% {
+                transform: rotate(-5deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+        
+        .package-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--rust);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .package-positioning {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--red);
+            font-style: italic;
+            font-weight: 600;
+        }
+        
+        .package-body {
+            padding: 3rem;
+        }
+        
+        .package-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        
+        .package-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .package-section h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.4rem;
+            color: var(--rust);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .package-section h3::before {
+            content: '→';
+            color: var(--red);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+        }
+        
+        .package-section h4 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.2rem;
+            color: var(--rust);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            padding-left: 1rem;
+            border-left: 3px solid var(--red);
+        }
+        
+        .package-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .package-section li {
+            padding-left: 2rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .package-section li::before {
+            content: '•';
+            position: absolute;
+            left: 0.5rem;
+            color: var(--red);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        .quote-block {
+            background: linear-gradient(135deg, rgba(230, 0, 39, 0.08) 0%, rgba(213, 233, 246, 0.2) 100%);
+            padding: 1.5rem 2rem;
+            border-left: 6px solid var(--red);
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.15rem;
+            border-radius: 0 10px 10px 0;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(230, 0, 39, 0.1);
+        }
+        
+        .quote-block::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            font-size: 4rem;
+            color: var(--red);
+            opacity: 0.3;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+        
+        /* Additional Services */
+        .additional-services {
+            max-width: 1000px;
+            margin: 6rem auto 4rem;
+            padding: 3rem 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border: 3px solid var(--red);
+            position: relative;
+        }
+        
+        .additional-services::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 80px;
+            height: 80px;
+            background: var(--red);
+            border-radius: 50%;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .additional-services::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: -15px;
+            width: 100px;
+            height: 100px;
+            background: var(--red);
+            border-radius: 50%;
+            opacity: 0.15;
+            z-index: -1;
+        }
+        
+        .additional-services h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--rust);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .service-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--cream);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .service-item:last-child {
+            border-bottom: none;
+        }
+        
+        .service-item strong {
+            color: var(--red);
+        }
+        
+        .service-emoji {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        /* Footer CTA */
+        .footer-cta {
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(180deg, var(--beige) 0%, var(--blue-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-cta::before {
+            content: '✦';
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            font-size: 3rem;
+            color: var(--red);
+            opacity: 0.4;
+            animation: float-slow 4s ease-in-out infinite;
+        }
+        
+        .footer-cta::after {
+            content: '✦';
+            position: absolute;
+            bottom: 30%;
+            right: 15%;
+            font-size: 2.5rem;
+            color: var(--red);
+            opacity: 0.3;
+            animation: float-slow 5s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float-slow {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+        
+        .footer-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--rust);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .footer-cta p {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--red);
+            font-style: italic;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .package-header {
+                padding: 2rem;
+            }
+            
+            .package-body {
+                padding: 2rem;
+            }
+            
+            .package-emoji {
+                font-size: 3rem;
+            }
+        }
+        
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="lindsey-profile.jpg" alt="Lindsey Patterson" class="profile-photo">
+            <h1>Lindsey Patterson</h1>
+            <div class="subtitle">Creative Business Strategist</div>
+            <p class="tagline">Helping people turn what they do well into a small business that works</p>
+            <div class="pricing-banner">
+                $150 for one session <span class="divider">|</span> $300 for a pack of three
+            </div>
+            <a href="https://calendar.app.google/yK7UyBjdD7Rd3MY69" target="_blank" class="cta-button">Schedule Your Free 15 Min Intro Call</a>
+        </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro">
+        <h2>Strategic Business Building</h2>
+        <p>Whether you're just starting out or reshaping an existing business, these strategic sessions are designed to help you clarify your direction, strengthen your positioning, and create offers that actually sell. Each package is focused, practical, and built around what you're already good at.</p>
+    </section>
+
+    <!-- Packages -->
+    <div class="packages-container">
+        <!-- Package 1: Dream Builder -->
+        <article class="package reveal">
+            <div class="package-header">
+                <span class="package-emoji">✨</span>
+                <h2 class="package-title">The Dream Builder Session</h2>
+                <p class="package-positioning">Turn what you're already good at into a real business.</p>
+            </div>
+            <div class="package-body">
+                <p class="package-description">A 60-minute strategic session to translate your existing skill, taste, or talent into a clear business direction and plan.</p>
+                
+                <div class="quote-block">
+                    "I know I'm good at something. I just don't know how to productize it, package it, or grow it."
+                </div>
+                
+                <div class="package-section">
+                    <h3>What We Do In The Session</h3>
+                    <ul>
+                        <li>Identifying your unfair advantage (what you're uniquely good at)</li>
+                        <li>Your business direction (What lane you should focus on and why)</li>
+                        <li>Your core positioning (How to explain what you do in a clear, compelling way)</li>
+                        <li>1–3 clear offer ideas (What you can actually sell and how to package it)</li>
+                        <li>Your immediate next steps (What to work on first, what to ignore, and what moves the needle)</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- Package 2: Idea Mapping -->
+        <article class="package reveal">
+            <div class="package-header">
+                <span class="package-emoji">🗺</span>
+                <h2 class="package-title">Idea Mapping Intensive</h2>
+                <p class="package-positioning">Reshape your business around what you do best.</p>
+            </div>
+            <div class="package-body">
+                <p class="package-description">A strategic working session for business owners who want to refocus what they offer, who they serve, and how they're known so the business becomes simpler, more profitable, and more aligned.</p>
+                
+                <div class="package-section">
+                    <h3>This Is For You If...</h3>
+                    <ul>
+                        <li>"I'm busy, but not focused."</li>
+                        <li>"I'm making money, but not enough — or not in the right way."</li>
+                        <li>"I want better clients and better work."</li>
+                    </ul>
+                </div>
+                
+                <div class="package-section">
+                    <h3>What We Work On</h3>
+                    
+                    <h4>1. Find Your Highest-Value Work</h4>
+                    <ul>
+                        <li>What part of your business you're best at</li>
+                        <li>What you enjoy the most</li>
+                        <li>What actually drives revenue</li>
+                        <li>We identify what should become the center of your business</li>
+                    </ul>
+                    
+                    <h4>2. Rebuild Your Offer Mix</h4>
+                    <ul>
+                        <li>Decide what to keep, what to cut, what to simplify or repackage</li>
+                        <li>Shape your business around fewer, better, clearer offers</li>
+                    </ul>
+                    
+                    <h4>3. Clarify Your People & Your Pull</h4>
+                    <ul>
+                        <li>Get clear on who your best clients actually are</li>
+                        <li>Who you should be attracting more of</li>
+                        <li>Define where they come from and what you should be known for</li>
+                        <li>How you should be talking about what you do</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- Package 3: Instagram Portfolio -->
+        <article class="package reveal">
+            <div class="package-header">
+                <span class="package-emoji">📸</span>
+                <h2 class="package-title">Instagram Portfolio Session</h2>
+                <p class="package-positioning">Turn your profile into your best salesperson.</p>
+            </div>
+            <div class="package-body">
+                <p class="package-description">A strategic working session to build your social media into a clear, compelling portfolio so your ideal client immediately understands who you are, what you do, and why they should book you.</p>
+                
+                <div class="quote-block">
+                    When someone lands on your page, they should instantly think: "Oh. This is exactly who I need."
+                </div>
+                
+                <div class="package-section">
+                    <h3>What We Work On</h3>
+                    
+                    <h4>1. Your Profile as a Sales Page</h4>
+                    <ul>
+                        <li>We refine your name & bio, profile photo, highlights, and pinned posts</li>
+                        <li>So your page explains your value in 5 seconds</li>
+                    </ul>
+                    
+                    <h4>2. Your Visual & Content Language</h4>
+                    <ul>
+                        <li>Define your content pillars and visual vibe</li>
+                        <li>What your grid should communicate</li>
+                        <li>What kind of posts build trust vs just look nice</li>
+                    </ul>
+                    
+                    <h4>3. Your Conversion Path</h4>
+                    <ul>
+                        <li>Clarify what you want someone to do (DM, book, click, inquire)</li>
+                        <li>How your page guides them there</li>
+                        <li>What proof, clarity, and signals need to exist</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- Package 4: Content Confidence -->
+        <article class="package reveal">
+            <div class="package-header">
+                <span class="package-emoji">🎤</span>
+                <h2 class="package-title">Content Confidence Session</h2>
+                <p class="package-positioning">Turn your natural skills into content people actually connect with.</p>
+            </div>
+            <div class="package-body">
+                <p class="package-description">A strategic, supportive session to help you show your work and your thinking in a way that feels like you — so content becomes natural, not forced, and starts attracting the right clients.</p>
+                
+                <div class="quote-block">
+                    This is not about becoming an influencer. This is about letting people see what makes you good at what you do.
+                </div>
+                
+                <div class="package-section">
+                    <h3>The Promise</h3>
+                    <p>You don't need to be loud, polished, or "on." You just need a way to show your work that feels comfortable and real.</p>
+                </div>
+                
+                <div class="package-section">
+                    <h3>What We Work On</h3>
+                    
+                    <h4>1. Find Your Natural Content Lanes</h4>
+                    <ul>
+                        <li>Identify how you already communicate and explain things</li>
+                        <li>How you already think about your work</li>
+                        <li>Turn that into repeatable content formats</li>
+                    </ul>
+                    
+                    <h4>2. Show Your Work Without Cringing</h4>
+                    <ul>
+                        <li>Design ways to show your process, thinking, and results</li>
+                        <li>That don't feel performative or forced</li>
+                    </ul>
+                    
+                    <h4>3. On-Camera (Or Not) — Your Choice</h4>
+                    <ul>
+                        <li>If you hate the camera: We design content that works without you on screen</li>
+                        <li>If you want to get more comfortable: We build simple, low-pressure ways to show up</li>
+                        <li>We remove the mental friction and overthinking</li>
+                    </ul>
+                </div>
+                
+                <div class="package-section">
+                    <h3>What You Get</h3>
+                    <p>A Content Confidence Plan including your personal content style, your best content formats, clear ideas for what to post and how to show your work, plus a simple, sustainable way to show up.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Package 5: Offer Creation Sprint -->
+        <article class="package reveal">
+            <div class="package-header">
+                <span class="package-emoji">💼</span>
+                <h2 class="package-title">Offer Creation Sprint</h2>
+                <p class="package-positioning">Turn what you're good at into a clear, well-defined way to make money.</p>
+            </div>
+            <div class="package-body">
+                <p class="package-description">A focused working session to take the thing you're already good at and turn it into a clear, contained, easy-to-explain service or package — so you're no longer winging it, over-delivering, or underselling what you do.</p>
+                
+                <div class="quote-block">
+                    "I know what I'm good at, but the way I sell it feels fuzzy, messy, or inconsistent."
+                </div>
+                
+                <div class="package-section">
+                    <h3>What We Work On</h3>
+                    
+                    <h4>1. Choose Your Money-Making Lane</h4>
+                    <ul>
+                        <li>Decide what you should actually be selling right now</li>
+                        <li>In what format (sessions, packages, projects, retainers, etc.)</li>
+                        <li>Based on what you're best at, what people already pay for, and what you don't hate delivering</li>
+                    </ul>
+                    
+                    <h4>2. Decide Exactly What It Includes (and What It Doesn't)</h4>
+                    <ul>
+                        <li>Get very specific about what the client gets</li>
+                        <li>What you are responsible for</li>
+                        <li>What the process looks like and where the boundaries are</li>
+                        <li>So you stop over-delivering, clients know what they're buying, and the work feels clean and contained</li>
+                    </ul>
+                    
+                    <h4>3. Make It Easy to Explain</h4>
+                    <ul>
+                        <li>Define what you call it and how you describe it in one or two sentences</li>
+                        <li>Who it's for, what problem it solves, what outcome they get</li>
+                        <li>What you charge and why</li>
+                        <li>So you can put it on your site, say it in DMs, say it out loud without rambling</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <!-- Additional Services -->
+    <section class="additional-services reveal">
+        <h2>Additional Services</h2>
+        <div class="service-item">
+            <span class="service-emoji">🚀</span>
+            <div><strong>Soft Launch Support</strong> — Guidance for first-time launches</div>
+        </div>
+        <div class="service-item">
+            <span class="service-emoji">🌳</span>
+            <div><strong>Momentum Month</strong> — Weekly check-ins for a month to accelerate your business</div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+        <h2>Ready to get started?</h2>
+        <p>Let's build something that works.</p>
+        <a href="https://calendar.app.google/yK7UyBjdD7Rd3MY69" target="_blank" class="cta-button">Schedule Your Free 15 Min Intro Call</a>
+    </section>
+
+    <script>
+        // Scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+    </script>
+</body>
+</html>
