@@ -240,6 +240,136 @@
             color: #333;
         }
         
+        /* Survey Section */
+        .survey-container {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .survey-box {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border: 3px solid var(--blue-light);
+        }
+        
+        .survey-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--rust);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .survey-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .survey-question {
+            display: none;
+            animation: slideIn 0.4s ease-out;
+        }
+        
+        .survey-question.active {
+            display: block;
+        }
+        
+        .survey-question h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.5rem;
+            color: var(--rust);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .survey-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .survey-option {
+            background: var(--beige);
+            border: 2px solid var(--blue-light);
+            padding: 1.5rem;
+            border-radius: 15px;
+            font-family: 'Crimson Text', serif;
+            font-size: 1.2rem;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        
+        .survey-option:hover {
+            border-color: var(--red);
+            background: white;
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(230, 0, 39, 0.15);
+        }
+        
+        .survey-result {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .survey-result.active {
+            display: block;
+        }
+        
+        .survey-result h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--rust);
+            margin-bottom: 2rem;
+        }
+        
+        #result-content {
+            background: linear-gradient(135deg, rgba(230, 0, 39, 0.05) 0%, rgba(213, 233, 246, 0.2) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 6px solid var(--red);
+            margin-bottom: 2rem;
+        }
+        
+        #result-content h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--rust);
+            margin-bottom: 1rem;
+        }
+        
+        #result-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #333;
+        }
+        
+        .survey-restart {
+            background: transparent;
+            border: 2px solid var(--rust);
+            color: var(--rust);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .survey-restart:hover {
+            background: var(--rust);
+            color: white;
+        }
+        
         /* Package Grid */
         .packages-container {
             max-width: 1400px;
@@ -610,213 +740,257 @@
     <section class="intro">
         <h2>Strategic Business Building</h2>
         <p>Whether you're just starting out or reshaping an existing business, these strategic sessions are designed to help you clarify your direction, strengthen your positioning, and create offers that actually sell. Each package is focused, practical, and built around what you're already good at.</p>
+        <p style="margin-top: 2rem; font-style: italic; color: var(--rust); font-size: 1.1rem;">This is a sample of what I offer — your session will be tailored to your specific needs.</p>
+    </section>
+
+    <!-- Interactive Survey -->
+    <section class="survey-container">
+        <div class="survey-box">
+            <h2>Find Your Perfect Session</h2>
+            <p class="survey-intro">Answer a few quick questions to discover which session is right for you.</p>
+            
+            <div id="survey-content">
+                <div class="survey-question active" data-question="1">
+                    <h3>Where are you in your business journey?</h3>
+                    <div class="survey-options">
+                        <button class="survey-option" data-next="2" data-score='{"dream":3,"refinement":1,"growth":0,"instagram":0,"content":0}'>
+                            🌱 Just starting - I have skills but no clear business yet
+                        </button>
+                        <button class="survey-option" data-next="2" data-score='{"dream":1,"refinement":3,"growth":2,"instagram":1,"content":1}'>
+                            🏗️ Building - I have a business but it needs focus
+                        </button>
+                        <button class="survey-option" data-next="2" data-score='{"dream":0,"refinement":2,"growth":3,"instagram":2,"content":2}'>
+                            📈 Growing - I want to scale and retain clients better
+                        </button>
+                    </div>
+                </div>
+
+                <div class="survey-question" data-question="2">
+                    <h3>What's your biggest challenge right now?</h3>
+                    <div class="survey-options">
+                        <button class="survey-option" data-next="3" data-score='{"dream":3,"refinement":0,"growth":0,"instagram":1,"content":0}'>
+                            💭 Figuring out what to sell and how to package it
+                        </button>
+                        <button class="survey-option" data-next="3" data-score='{"dream":0,"refinement":3,"growth":1,"instagram":1,"content":1}'>
+                            🎯 My business feels too broad or scattered
+                        </button>
+                        <button class="survey-option" data-next="3" data-score='{"dream":0,"refinement":1,"growth":3,"instagram":0,"content":0}'>
+                            🔄 Getting repeat clients and referrals
+                        </button>
+                        <button class="survey-option" data-next="3" data-score='{"dream":1,"refinement":1,"growth":1,"instagram":3,"content":2}'>
+                            📱 My online presence doesn't reflect my work well
+                        </button>
+                    </div>
+                </div>
+
+                <div class="survey-question" data-question="3">
+                    <h3>How do you feel about creating content?</h3>
+                    <div class="survey-options">
+                        <button class="survey-option" data-next="result" data-score='{"dream":1,"refinement":1,"growth":1,"instagram":2,"content":3}'>
+                            😰 Uncomfortable - I avoid it or it feels forced
+                        </button>
+                        <button class="survey-option" data-next="result" data-score='{"dream":1,"refinement":1,"growth":1,"instagram":3,"content":1}'>
+                            🤷 I post sometimes but not sure if it's working
+                        </button>
+                        <button class="survey-option" data-next="result" data-score='{"dream":2,"refinement":2,"growth":2,"instagram":1,"content":1}'>
+                            ✅ Pretty confident - just need strategic direction
+                        </button>
+                    </div>
+                </div>
+
+                <div class="survey-result" id="survey-result">
+                    <h3>Your Recommended Session:</h3>
+                    <div id="result-content"></div>
+                    <button class="cta-button" id="view-session-btn">View This Session</button>
+                    <button class="survey-restart" onclick="restartSurvey()">↻ Retake Survey</button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Packages -->
     <div class="packages-container">
         <!-- Package 1: Dream Builder -->
-        <article class="package reveal">
+        <article class="package reveal" id="dream-builder">
             <div class="package-header">
                 <span class="package-emoji">✨</span>
                 <h2 class="package-title">The Dream Builder Session</h2>
-                <p class="package-positioning">Turn what you're already good at into a real business.</p>
+                <p class="package-positioning">Turn what you're already good at into something real</p>
             </div>
             <div class="package-body">
-                <p class="package-description">A 60-minute strategic session to translate your existing skill, taste, or talent into a clear business direction and plan.</p>
-                
-                <div class="quote-block">
-                    "I know I'm good at something. I just don't know how to productize it, package it, or grow it."
+                <div class="package-section">
+                    <h3>Who this is for</h3>
+                    <ul>
+                        <li>You have a skill, taste, or instinct people already come to you for</li>
+                        <li>You know there's a real business here, but you haven't shaped it yet</li>
+                        <li>You want clarity and direction before investing more time or energy</li>
+                    </ul>
                 </div>
                 
                 <div class="package-section">
-                    <h3>What We Do In The Session</h3>
+                    <h3>What you get</h3>
+                    <p>A 60-minute strategic conversation to help you turn what you're naturally good at into a clear business direction.</p>
+                    
+                    <h4>We'll talk through:</h4>
                     <ul>
-                        <li>Identifying your unfair advantage (what you're uniquely good at)</li>
-                        <li>Your business direction (What lane you should focus on and why)</li>
-                        <li>Your core positioning (How to explain what you do in a clear, compelling way)</li>
-                        <li>1–3 clear offer ideas (What you can actually sell and how to package it)</li>
-                        <li>Your immediate next steps (What to work on first, what to ignore, and what moves the needle)</li>
+                        <li>What you're uniquely good at (and why it matters)</li>
+                        <li>What kind of business model fits you best</li>
+                        <li>A few clear, realistic offer paths</li>
+                        <li>What to focus on first to build momentum</li>
                     </ul>
+                </div>
+                
+                <div class="package-section">
+                    <h3>You'll leave with</h3>
+                    <p>A confident understanding of what you're building and how to move forward.</p>
                 </div>
             </div>
         </article>
 
-        <!-- Package 2: Idea Mapping -->
-        <article class="package reveal">
+        <!-- Package 2: Business Refinement -->
+        <article class="package reveal" id="business-refinement">
             <div class="package-header">
-                <span class="package-emoji">🗺</span>
-                <h2 class="package-title">Idea Mapping Intensive</h2>
-                <p class="package-positioning">Reshape your business around what you do best.</p>
+                <span class="package-emoji">🧭</span>
+                <h2 class="package-title">The Business Refinement Session</h2>
+                <p class="package-positioning">Clarify your niche, audience, and growth path</p>
             </div>
             <div class="package-body">
-                <p class="package-description">A strategic working session for business owners who want to refocus what they offer, who they serve, and how they're known so the business becomes simpler, more profitable, and more aligned.</p>
-                
                 <div class="package-section">
-                    <h3>This Is For You If...</h3>
+                    <h3>Who this is for</h3>
                     <ul>
-                        <li>"I'm busy, but not focused."</li>
-                        <li>"I'm making money, but not enough — or not in the right way."</li>
-                        <li>"I want better clients and better work."</li>
+                        <li>You have a solid foundation, but things feel a bit too broad</li>
+                        <li>You want to sharpen your niche, audience, or positioning</li>
+                        <li>You're ready to move from "this works" to "this works really well"</li>
                     </ul>
                 </div>
                 
                 <div class="package-section">
-                    <h3>What We Work On</h3>
+                    <h3>What you get</h3>
+                    <p>A strategic working session focused on refining your business model so it's clearer, more intentional, and easier to grow.</p>
                     
-                    <h4>1. Find Your Highest-Value Work</h4>
+                    <h4>We'll focus on:</h4>
                     <ul>
-                        <li>What part of your business you're best at</li>
-                        <li>What you enjoy the most</li>
-                        <li>What actually drives revenue</li>
-                        <li>We identify what should become the center of your business</li>
+                        <li>Narrowing your niche in a way that creates traction (not limits you)</li>
+                        <li>Clarifying who your best audience actually is</li>
+                        <li>Defining what you should be known for</li>
+                        <li>Strengthening the core of your marketing and positioning so everything connects</li>
                     </ul>
-                    
-                    <h4>2. Rebuild Your Offer Mix</h4>
-                    <ul>
-                        <li>Decide what to keep, what to cut, what to simplify or repackage</li>
-                        <li>Shape your business around fewer, better, clearer offers</li>
-                    </ul>
-                    
-                    <h4>3. Clarify Your People & Your Pull</h4>
-                    <ul>
-                        <li>Get clear on who your best clients actually are</li>
-                        <li>Who you should be attracting more of</li>
-                        <li>Define where they come from and what you should be known for</li>
-                        <li>How you should be talking about what you do</li>
-                    </ul>
+                </div>
+                
+                <div class="package-section">
+                    <h3>You'll leave with</h3>
+                    <p>A more focused business model and a clearer path for sustainable growth.</p>
                 </div>
             </div>
         </article>
 
-        <!-- Package 3: Instagram Portfolio -->
-        <article class="package reveal">
+        <!-- Package 3: Client Growth & Loyalty -->
+        <article class="package reveal" id="client-growth">
+            <div class="package-header">
+                <span class="package-emoji">🔁</span>
+                <h2 class="package-title">The Client Growth & Loyalty Sprint</h2>
+                <p class="package-positioning">Build a business people want to come back to</p>
+            </div>
+            <div class="package-body">
+                <div class="package-section">
+                    <h3>Who this is for</h3>
+                    <ul>
+                        <li>You already offer something valuable, but want stronger client retention</li>
+                        <li>You want repeat clients, referrals, and long-term relationships</li>
+                        <li>You're ready to think beyond one-off transactions</li>
+                    </ul>
+                </div>
+                
+                <div class="package-section">
+                    <h3>What you get</h3>
+                    <p>A focused strategy session to design how your business creates loyalty, return clients, and ongoing demand.</p>
+                    
+                    <h4>We'll work through:</h4>
+                    <ul>
+                        <li>How clients move through your business after the first "yes"</li>
+                        <li>Ways to encourage repeat work, referrals, or deeper engagement</li>
+                        <li>How to stay top of mind with past clients</li>
+                        <li>Simple systems for nurturing and marketing to people who already trust you</li>
+                    </ul>
+                </div>
+                
+                <div class="package-section">
+                    <h3>You'll leave with</h3>
+                    <p>A clear client journey and practical ways to grow through relationships.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Package 4: Instagram Portfolio -->
+        <article class="package reveal" id="instagram-portfolio">
             <div class="package-header">
                 <span class="package-emoji">📸</span>
                 <h2 class="package-title">Instagram Portfolio Session</h2>
-                <p class="package-positioning">Turn your profile into your best salesperson.</p>
+                <p class="package-positioning">Turn your profile into a clear reflection of what you do</p>
             </div>
             <div class="package-body">
-                <p class="package-description">A strategic working session to build your social media into a clear, compelling portfolio so your ideal client immediately understands who you are, what you do, and why they should book you.</p>
-                
-                <div class="quote-block">
-                    When someone lands on your page, they should instantly think: "Oh. This is exactly who I need."
+                <div class="package-section">
+                    <h3>Who this is for</h3>
+                    <ul>
+                        <li>You do great work, but your profile doesn't fully show it</li>
+                        <li>People land on your page and still have questions</li>
+                        <li>Instagram plays a role in how people decide to work with you</li>
+                    </ul>
                 </div>
                 
                 <div class="package-section">
-                    <h3>What We Work On</h3>
+                    <h3>What you get</h3>
+                    <p>A strategic session to help your Instagram function more like a portfolio and decision-making tool.</p>
                     
-                    <h4>1. Your Profile as a Sales Page</h4>
+                    <h4>We'll refine:</h4>
                     <ul>
-                        <li>We refine your name & bio, profile photo, highlights, and pinned posts</li>
-                        <li>So your page explains your value in 5 seconds</li>
+                        <li>Your bio and profile setup</li>
+                        <li>What your page communicates at first glance</li>
+                        <li>What types of posts build trust and clarity</li>
+                        <li>How people are guided toward the next step</li>
                     </ul>
-                    
-                    <h4>2. Your Visual & Content Language</h4>
-                    <ul>
-                        <li>Define your content pillars and visual vibe</li>
-                        <li>What your grid should communicate</li>
-                        <li>What kind of posts build trust vs just look nice</li>
-                    </ul>
-                    
-                    <h4>3. Your Conversion Path</h4>
-                    <ul>
-                        <li>Clarify what you want someone to do (DM, book, click, inquire)</li>
-                        <li>How your page guides them there</li>
-                        <li>What proof, clarity, and signals need to exist</li>
-                    </ul>
+                </div>
+                
+                <div class="package-section">
+                    <h3>You'll leave with</h3>
+                    <p>A profile that makes it easy for the right people to understand you — and take action.</p>
                 </div>
             </div>
         </article>
 
-        <!-- Package 4: Content Confidence -->
-        <article class="package reveal">
+        <!-- Package 5: Content Confidence -->
+        <article class="package reveal" id="content-confidence">
             <div class="package-header">
                 <span class="package-emoji">🎤</span>
                 <h2 class="package-title">Content Confidence Session</h2>
-                <p class="package-positioning">Turn your natural skills into content people actually connect with.</p>
+                <p class="package-positioning">Find a way to show your work that actually feels like you</p>
             </div>
             <div class="package-body">
-                <p class="package-description">A strategic, supportive session to help you show your work and your thinking in a way that feels like you — so content becomes natural, not forced, and starts attracting the right clients.</p>
-                
-                <div class="quote-block">
-                    This is not about becoming an influencer. This is about letting people see what makes you good at what you do.
-                </div>
-                
                 <div class="package-section">
-                    <h3>The Promise</h3>
-                    <p>You don't need to be loud, polished, or "on." You just need a way to show your work that feels comfortable and real.</p>
-                </div>
-                
-                <div class="package-section">
-                    <h3>What We Work On</h3>
-                    
-                    <h4>1. Find Your Natural Content Lanes</h4>
+                    <h3>Who this is for</h3>
                     <ul>
-                        <li>Identify how you already communicate and explain things</li>
-                        <li>How you already think about your work</li>
-                        <li>Turn that into repeatable content formats</li>
-                    </ul>
-                    
-                    <h4>2. Show Your Work Without Cringing</h4>
-                    <ul>
-                        <li>Design ways to show your process, thinking, and results</li>
-                        <li>That don't feel performative or forced</li>
-                    </ul>
-                    
-                    <h4>3. On-Camera (Or Not) — Your Choice</h4>
-                    <ul>
-                        <li>If you hate the camera: We design content that works without you on screen</li>
-                        <li>If you want to get more comfortable: We build simple, low-pressure ways to show up</li>
-                        <li>We remove the mental friction and overthinking</li>
+                        <li>You know content helps, but it often feels uncomfortable or forced</li>
+                        <li>You don't want to be "on" all the time</li>
+                        <li>You want people to understand how you think and work</li>
                     </ul>
                 </div>
                 
                 <div class="package-section">
-                    <h3>What You Get</h3>
-                    <p>A Content Confidence Plan including your personal content style, your best content formats, clear ideas for what to post and how to show your work, plus a simple, sustainable way to show up.</p>
-                </div>
-            </div>
-        </article>
-
-        <!-- Package 5: Offer Creation Sprint -->
-        <article class="package reveal">
-            <div class="package-header">
-                <span class="package-emoji">💼</span>
-                <h2 class="package-title">Offer Creation Sprint</h2>
-                <p class="package-positioning">Turn what you're good at into a clear, well-defined way to make money.</p>
-            </div>
-            <div class="package-body">
-                <p class="package-description">A focused working session to take the thing you're already good at and turn it into a clear, contained, easy-to-explain service or package — so you're no longer winging it, over-delivering, or underselling what you do.</p>
-                
-                <div class="quote-block">
-                    "I know what I'm good at, but the way I sell it feels fuzzy, messy, or inconsistent."
+                    <h3>What you get</h3>
+                    <p>A supportive session to help you share your work and ideas in a way that feels natural and sustainable.</p>
+                    
+                    <h4>We'll figure out:</h4>
+                    <ul>
+                        <li>How you already communicate (and how to lean into it)</li>
+                        <li>What kinds of content feel easiest for you</li>
+                        <li>How to show your process and thinking without overthinking it</li>
+                        <li>Camera-on or camera-off options that still work</li>
+                    </ul>
                 </div>
                 
                 <div class="package-section">
-                    <h3>What We Work On</h3>
-                    
-                    <h4>1. Choose Your Money-Making Lane</h4>
-                    <ul>
-                        <li>Decide what you should actually be selling right now</li>
-                        <li>In what format (sessions, packages, projects, retainers, etc.)</li>
-                        <li>Based on what you're best at, what people already pay for, and what you don't hate delivering</li>
-                    </ul>
-                    
-                    <h4>2. Decide Exactly What It Includes (and What It Doesn't)</h4>
-                    <ul>
-                        <li>Get very specific about what the client gets</li>
-                        <li>What you are responsible for</li>
-                        <li>What the process looks like and where the boundaries are</li>
-                        <li>So you stop over-delivering, clients know what they're buying, and the work feels clean and contained</li>
-                    </ul>
-                    
-                    <h4>3. Make It Easy to Explain</h4>
-                    <ul>
-                        <li>Define what you call it and how you describe it in one or two sentences</li>
-                        <li>Who it's for, what problem it solves, what outcome they get</li>
-                        <li>What you charge and why</li>
-                        <li>So you can put it on your site, say it in DMs, say it out loud without rambling</li>
-                    </ul>
+                    <h3>You'll leave with</h3>
+                    <p>A simple, realistic content approach you can actually stick to.</p>
                 </div>
             </div>
         </article>
@@ -824,14 +998,14 @@
 
     <!-- Additional Services -->
     <section class="additional-services reveal">
-        <h2>Additional Services</h2>
-        <div class="service-item">
-            <span class="service-emoji">🚀</span>
-            <div><strong>Soft Launch Support</strong> — Guidance for first-time launches</div>
-        </div>
+        <h2>Add-On Service</h2>
         <div class="service-item">
             <span class="service-emoji">🌳</span>
-            <div><strong>Momentum Month</strong> — Weekly check-ins for a month to accelerate your business</div>
+            <div>
+                <strong>Momentum Month</strong> — Ongoing support and accountability as you implement
+                <p style="margin-top: 0.5rem; font-size: 1rem; color: #666;">Weekly 30-minute check-ins for one month. Continued guidance as you implement strategy, content, or changes. A dedicated space to troubleshoot, refine, and stay focused. Clear follow-through, steady progress, and accountability along the way.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem; font-style: italic; color: #999;">*Available only for clients who've completed one of the sessions above</p>
+            </div>
         </div>
     </section>
 
@@ -843,6 +1017,121 @@
     </section>
 
     <script>
+        // Survey functionality
+        let surveyScores = {
+            dream: 0,
+            refinement: 0,
+            growth: 0,
+            instagram: 0,
+            content: 0
+        };
+
+        const sessionInfo = {
+            dream: {
+                id: 'dream-builder',
+                emoji: '✨',
+                title: 'The Dream Builder Session',
+                description: 'Perfect for turning your skills into a real business with clear direction and focus.'
+            },
+            refinement: {
+                id: 'business-refinement',
+                emoji: '🧭',
+                title: 'The Business Refinement Session',
+                description: 'Ideal for clarifying your niche, audience, and creating a more focused business model.'
+            },
+            growth: {
+                id: 'client-growth',
+                emoji: '🔁',
+                title: 'The Client Growth & Loyalty Sprint',
+                description: 'Best for building repeat clients, referrals, and long-term business relationships.'
+            },
+            instagram: {
+                id: 'instagram-portfolio',
+                emoji: '📸',
+                title: 'Instagram Portfolio Session',
+                description: 'Great for making your Instagram profile truly represent your work and attract clients.'
+            },
+            content: {
+                id: 'content-confidence',
+                emoji: '🎤',
+                title: 'Content Confidence Session',
+                description: 'Perfect for finding a natural, sustainable way to create content that feels authentic to you.'
+            }
+        };
+
+        // Handle survey option clicks
+        document.querySelectorAll('.survey-option').forEach(button => {
+            button.addEventListener('click', function() {
+                const scores = JSON.parse(this.getAttribute('data-score'));
+                const nextQuestion = this.getAttribute('data-next');
+                
+                // Add scores
+                for (let key in scores) {
+                    surveyScores[key] += scores[key];
+                }
+                
+                // Hide current question
+                const currentQuestion = this.closest('.survey-question');
+                currentQuestion.classList.remove('active');
+                
+                if (nextQuestion === 'result') {
+                    // Show result
+                    showResult();
+                } else {
+                    // Show next question
+                    document.querySelector(`[data-question="${nextQuestion}"]`).classList.add('active');
+                }
+            });
+        });
+
+        function showResult() {
+            // Find highest score
+            let maxScore = 0;
+            let recommendedSession = '';
+            
+            for (let key in surveyScores) {
+                if (surveyScores[key] > maxScore) {
+                    maxScore = surveyScores[key];
+                    recommendedSession = key;
+                }
+            }
+            
+            // Display result
+            const session = sessionInfo[recommendedSession];
+            const resultContent = document.getElementById('result-content');
+            resultContent.innerHTML = `
+                <h4>${session.emoji} ${session.title}</h4>
+                <p>${session.description}</p>
+            `;
+            
+            // Set up view button
+            const viewBtn = document.getElementById('view-session-btn');
+            viewBtn.onclick = function() {
+                document.getElementById(session.id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
+            
+            // Show result
+            document.getElementById('survey-result').classList.add('active');
+        }
+
+        function restartSurvey() {
+            // Reset scores
+            surveyScores = {
+                dream: 0,
+                refinement: 0,
+                growth: 0,
+                instagram: 0,
+                content: 0
+            };
+            
+            // Hide result
+            document.getElementById('survey-result').classList.remove('active');
+            
+            // Show first question
+            document.querySelectorAll('.survey-question').forEach(q => q.classList.remove('active'));
+            document.querySelector('[data-question="1"]').classList.add('active');
+        }
+
         // Scroll reveal animation
         const reveals = document.querySelectorAll('.reveal');
         
