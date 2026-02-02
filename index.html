@@ -363,8 +363,8 @@
             content: '★';
             position: absolute;
             top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 20px;
+            transform: translateX(0);
             font-size: 3rem;
             color: var(--red);
             animation: sparkle 2s ease-in-out infinite;
@@ -431,8 +431,8 @@
             padding: 5px 20px;
             background: rgba(230, 0, 39, 0.12);
             transform: rotate(1deg);
-            border-top: 2px dashed rgba(230, 0, 39, 0.4);
-            border-bottom: 2px dashed rgba(230, 0, 39, 0.4);
+            border-top: 2px solid rgba(230, 0, 39, 0.4);
+            border-bottom: 2px solid rgba(230, 0, 39, 0.4);
             font-size: 1.2rem;
             color: var(--red);
             letter-spacing: 0.5rem;
@@ -657,7 +657,6 @@
             position: relative;
             overflow: hidden;
             border-top: 6px solid var(--red);
-            border-bottom: 4px dashed rgba(189, 228, 253, 0.6);
         }
         
         /* Default header background */
@@ -665,30 +664,35 @@
             background: 
                 linear-gradient(135deg, #ffe5ec 0%, rgba(255, 229, 236, 0.4) 100%),
                 repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(230, 0, 39, 0.05) 15px, rgba(230, 0, 39, 0.05) 30px);
+            border-bottom: 4px solid rgba(189, 228, 253, 0.6);
         }
         
         .package:nth-child(2) .package-header {
             background: 
                 linear-gradient(135deg, var(--blue-light) 0%, rgba(189, 228, 253, 0.4) 100%),
                 repeating-linear-gradient(-45deg, transparent, transparent 12px, rgba(100, 26, 3, 0.03) 12px, rgba(100, 26, 3, 0.03) 24px);
+            border-bottom: 4px solid rgba(189, 228, 253, 0.6);
         }
         
         .package:nth-child(3) .package-header {
             background: 
                 linear-gradient(135deg, #fff4e6 0%, rgba(255, 244, 230, 0.4) 100%),
                 repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(230, 0, 39, 0.04) 20px, rgba(230, 0, 39, 0.04) 40px);
+            border-bottom: 4px solid rgba(189, 228, 253, 0.6);
         }
         
         .package:nth-child(4) .package-header {
             background: 
                 linear-gradient(135deg, #f0f9ff 0%, rgba(240, 249, 255, 0.4) 100%),
                 repeating-linear-gradient(0deg, transparent, transparent 25px, rgba(189, 228, 253, 0.15) 25px, rgba(189, 228, 253, 0.15) 26px);
+            border-bottom: 4px solid rgba(189, 228, 253, 0.6);
         }
         
         .package:nth-child(5) .package-header {
             background: 
                 linear-gradient(135deg, #fef3f3 0%, rgba(254, 243, 243, 0.4) 100%),
                 url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="2" fill="rgba(230,0,39,0.08)"/></svg>');
+            border-bottom: 4px solid rgba(189, 228, 253, 0.6);
         }
         
         /* Textured scrapbook background effect */
@@ -888,33 +892,6 @@
             right: 20px;
             font-size: 3rem;
             opacity: 0.25;
-        }
-        
-        /* Add washi tape to alternate packages */
-        .package:nth-child(odd) .package-body::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -10px;
-            width: 80px;
-            height: 35px;
-            background: rgba(230, 0, 39, 0.1);
-            transform: rotate(-5deg) translateY(-50%);
-            border-top: 2px dashed rgba(230, 0, 39, 0.3);
-            border-bottom: 2px dashed rgba(230, 0, 39, 0.3);
-        }
-        
-        .package:nth-child(even) .package-body::after {
-            content: '';
-            position: absolute;
-            top: 30%;
-            right: -10px;
-            width: 80px;
-            height: 35px;
-            background: rgba(189, 228, 253, 0.3);
-            transform: rotate(8deg);
-            border-top: 2px dashed rgba(189, 228, 253, 0.6);
-            border-bottom: 2px dashed rgba(189, 228, 253, 0.6);
         }
         
         .package-section {
@@ -1209,7 +1186,7 @@
             <p class="tagline">Helping people turn what they do well<br>into a small business that works</p>
             <a href="https://calendar.app.google/yK7UyBjdD7Rd3MY69" target="_blank" class="cta-button">Schedule Your Free 15 Min Intro Call</a>
             <div class="pricing-banner">
-                $150 for one session <span class="divider">|</span> $300 for a pack of three
+                $150 for one session <span class="divider">|</span> $350 for a pack of three
             </div>
         </div>
     </section>
