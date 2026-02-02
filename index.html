@@ -429,11 +429,27 @@
         
         .survey-box h2 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            color: var(--rust);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--red);
             margin-bottom: 1rem;
             text-align: center;
-            font-weight: 700;
+            font-weight: 900;
+            text-shadow: 2px 2px 0 rgba(189, 228, 253, 0.3);
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .survey-box h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--red), transparent);
         }
         
         .survey-intro {
