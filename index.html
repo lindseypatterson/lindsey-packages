@@ -6,16 +6,16 @@
     <title>Lindsey Patterson | Creative Business Strategist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet"> <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --blue-light: #d5e9f6;
+            --blue-light: #bde4fd;
             --rust: #641a03;
             --red: #e60027;
-            --red-light: #e60027;
             --beige: #fff9f1;
-            --cream: #ebe6dc;
+            --cream: #fff9f1;
         }
         
         * {
@@ -26,13 +26,13 @@
         
         body {
             font-family: 'Open Sans', sans-serif;
-            background: var(--beige);
+            background: var(--cream);
             color: #1a1a1a;
             line-height: 1.6;
             overflow-x: hidden;
         }
         
-        /* Decorative background pattern */
+        /* Decorative background pattern with doodles */
         body::before {
             content: '';
             position: fixed;
@@ -40,11 +40,30 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(213, 233, 246, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(230, 0, 39, 0.05) 0%, transparent 50%);
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 255, 255, 0.03) 35px, rgba(255, 255, 255, 0.03) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(230, 0, 39, 0.02) 35px, rgba(230, 0, 39, 0.02) 70px);
             pointer-events: none;
             z-index: -1;
+        }
+        
+        /* Fun decorative elements scattered */
+        body::after {
+            content: '💡 ✨ ✓ 💡 ✨';
+            position: fixed;
+            top: 10%;
+            right: 5%;
+            font-size: 1.5rem;
+            color: var(--red);
+            opacity: 0.15;
+            letter-spacing: 2rem;
+            animation: float-doodles 10s ease-in-out infinite;
+            z-index: -1;
+        }
+        
+        @keyframes float-doodles {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
         }
         
         /* Hero Section */
@@ -57,8 +76,23 @@
             text-align: center;
             padding: 4rem 2rem;
             position: relative;
-            background: linear-gradient(135deg, var(--blue-light) 0%, rgba(213, 233, 246, 0.4) 100%);
+            background: 
+                linear-gradient(135deg, var(--cream) 0%, var(--blue-light) 50%, var(--cream) 100%),
+                radial-gradient(circle at 30% 40%, var(--blue-light) 0%, transparent 60%),
+                radial-gradient(circle at 70% 60%, rgba(189, 228, 253, 0.4) 0%, transparent 50%);
             clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+        }
+        
+        /* Add playful doodle elements to hero */
+        .hero::before {
+            content: '💡';
+            position: absolute;
+            top: 15%;
+            left: 10%;
+            font-size: 4rem;
+            opacity: 0.25;
+            transform: rotate(15deg);
+            animation: float-doodles 8s ease-in-out infinite;
         }
         
         .hero::after {
@@ -68,8 +102,33 @@
             left: 0;
             right: 0;
             height: 150px;
-            background: var(--beige);
+            background: var(--cream);
             clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 100%);
+        }
+        
+        /* Add growth arrow */
+        .hero .hero-content::before {
+            content: '📈';
+            position: absolute;
+            top: 10%;
+            right: -50px;
+            font-size: 3rem;
+            opacity: 0.2;
+            animation: float-doodles 6s ease-in-out infinite;
+        }
+        
+        /* Add decorative blue circles */
+        .hero .hero-content::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, var(--blue-light) 0%, transparent 70%);
+            opacity: 0.3;
+            border-radius: 50%;
+            z-index: -1;
         }
         
         .hero-content {
@@ -85,7 +144,10 @@
             border-radius: 50%;
             object-fit: cover;
             border: 6px solid white;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.15),
+                0 0 0 12px var(--red),
+                0 0 0 20px var(--blue-light);
             margin-bottom: 2rem;
             animation: fadeIn 1s ease-out 0.3s both;
         }
@@ -109,11 +171,11 @@
             margin-bottom: 1rem;
             letter-spacing: -0.02em;
             line-height: 1.1;
-            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
+            text-shadow: 3px 3px 0 rgba(255, 255, 255, 0.8);
         }
         
         .hero .subtitle {
-            font-family: 'Libre Baskerville', serif;
+            font-family: 'Playfair Display', serif;
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             color: var(--rust);
             margin-bottom: 1.5rem;
@@ -123,12 +185,12 @@
         
         .hero .tagline {
             font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            color: var(--red-light);
+            color: var(--red);
             font-style: normal;
             max-width: 700px;
             margin: 0 auto 2rem;
             font-weight: 700;
-            font-family: 'Libre Baskerville', serif;
+            font-family: 'Playfair Display', serif;
             letter-spacing: 0.03em;
             text-transform: none;
         }
@@ -139,11 +201,13 @@
             padding: 1.5rem 3rem;
             border-radius: 50px;
             display: inline-block;
-            font-family: 'Libre Baskerville', serif;
+            font-family: 'Playfair Display', serif;
             font-size: clamp(1.1rem, 2.5vw, 1.4rem);
             font-weight: 700;
-            box-shadow: 0 10px 30px rgba(100, 26, 3, 0.3);
-            margin-top: 1rem;
+            box-shadow: 
+                0 10px 30px rgba(100, 26, 3, 0.3),
+                inset 0 2px 0 rgba(255, 255, 255, 0.2);
+            margin-top: 1.5rem;
         }
         
         .pricing-banner .divider {
@@ -157,31 +221,67 @@
             color: white;
             padding: 1.2rem 2.5rem;
             border-radius: 50px;
-            font-family: 'Libre Baskerville', serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.1rem;
             font-weight: 700;
             text-decoration: none;
-            box-shadow: 0 10px 30px rgba(230, 0, 39, 0.3);
+            box-shadow: 
+                0 10px 30px rgba(230, 0, 39, 0.3),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
             margin-top: 2rem;
             letter-spacing: 0.02em;
             animation: pulse-cta 2s ease-in-out infinite;
+            border: none;
+        }
+        
+        /* Sticky floating CTA button */
+        .sticky-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: none;
+            background: var(--red);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 
+                0 10px 30px rgba(230, 0, 39, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+            animation: pulse-cta 2s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .sticky-cta.visible {
+            display: inline-block;
+        }
+        
+        .sticky-cta:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(230, 0, 39, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.3);
+            background: #ff0d3a;
+            animation: none;
         }
         
         @keyframes pulse-cta {
             0%, 100% {
                 transform: scale(1);
-                box-shadow: 0 10px 30px rgba(230, 0, 39, 0.3);
+                box-shadow: 0 10px 30px rgba(230, 0, 39, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.3);
             }
             50% {
                 transform: scale(1.03);
-                box-shadow: 0 15px 40px rgba(230, 0, 39, 0.5);
+                box-shadow: 0 15px 40px rgba(230, 0, 39, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.3);
             }
         }
         
         .cta-button:hover {
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(230, 0, 39, 0.5);
+            box-shadow: 0 15px 40px rgba(230, 0, 39, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.3);
             background: #ff0d3a;
             animation: none;
         }
@@ -194,31 +294,37 @@
         .intro {
             max-width: 1000px;
             margin: 6rem auto 4rem;
-            padding: 0 2rem;
+            padding: 3rem 2rem;
             text-align: center;
             animation: fadeIn 1s ease-out 0.3s both;
             position: relative;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 4px solid var(--blue-light);
         }
         
         .intro::before {
             content: '★';
             position: absolute;
-            top: -30px;
+            top: -20px;
             left: 50%;
             transform: translateX(-50%);
             font-size: 3rem;
             color: var(--red);
             animation: sparkle 2s ease-in-out infinite;
+            background: var(--cream);
+            padding: 0 15px;
         }
         
         @keyframes sparkle {
             0%, 100% {
                 opacity: 0.6;
-                transform: translateX(-50%) scale(1);
+                transform: translateX(-50%) scale(1) rotate(0deg);
             }
             50% {
                 opacity: 1;
-                transform: translateX(-50%) scale(1.2);
+                transform: translateX(-50%) scale(1.2) rotate(180deg);
             }
         }
         
@@ -239,9 +345,10 @@
             font-size: clamp(1.1rem, 2.5vw, 1.3rem);
             line-height: 1.8;
             color: #333;
+            font-family: 'Open Sans', sans-serif;
         }
         
-        /* Survey Section */
+        /* Survey Section - make it more playful */
         .survey-container {
             max-width: 900px;
             margin: 4rem auto;
@@ -252,8 +359,41 @@
             background: white;
             border-radius: 20px;
             padding: 3rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-            border: 3px solid var(--blue-light);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.15),
+                inset 0 0 0 4px var(--cream);
+            border: 4px solid var(--blue-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Scrapbook tape effect */
+        .survey-box::before {
+            content: '★ ★ ★';
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            padding: 5px 20px;
+            background: rgba(230, 0, 39, 0.12);
+            transform: rotate(1deg);
+            border-top: 2px dashed rgba(230, 0, 39, 0.4);
+            border-bottom: 2px dashed rgba(230, 0, 39, 0.4);
+            font-size: 1.2rem;
+            color: var(--red);
+            letter-spacing: 0.5rem;
+        }
+        
+        .survey-box::after {
+            content: '';
+            position: absolute;
+            bottom: 40px;
+            left: -10px;
+            width: 100px;
+            height: 40px;
+            background: rgba(189, 228, 253, 0.3);
+            transform: rotate(-8deg);
+            border-top: 2px dashed rgba(189, 228, 253, 0.6);
+            border-bottom: 2px dashed rgba(189, 228, 253, 0.6);
         }
         
         .survey-box h2 {
@@ -270,6 +410,7 @@
             font-size: 1.2rem;
             color: #666;
             margin-bottom: 2rem;
+            font-family: 'Open Sans', sans-serif;
         }
         
         .survey-question {
@@ -282,7 +423,7 @@
         }
         
         .survey-question h3 {
-            font-family: 'Libre Baskerville', serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             color: var(--rust);
             margin-bottom: 2rem;
@@ -296,23 +437,41 @@
         }
         
         .survey-option {
-            background: var(--beige);
-            border: 2px solid var(--blue-light);
+            background: var(--cream);
+            border: 3px solid var(--blue-light);
             padding: 1.5rem;
             border-radius: 15px;
-            font-family: 'Crimson Text', serif;
-            font-size: 1.2rem;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.1rem;
             color: #333;
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: left;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        
+        .survey-option::after {
+            content: '→';
+            position: absolute;
+            right: 20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: var(--red);
+            font-size: 1.5rem;
         }
         
         .survey-option:hover {
             border-color: var(--red);
-            background: white;
+            background: var(--blue-light);
             transform: translateX(10px);
-            box-shadow: 0 5px 20px rgba(230, 0, 39, 0.15);
+            box-shadow: 0 8px 25px rgba(230, 0, 39, 0.2);
+        }
+        
+        .survey-option:hover::after {
+            opacity: 1;
+            right: 15px;
         }
         
         .survey-result {
@@ -333,11 +492,21 @@
         }
         
         #result-content {
-            background: linear-gradient(135deg, rgba(230, 0, 39, 0.05) 0%, rgba(213, 233, 246, 0.2) 100%);
+            background: linear-gradient(135deg, var(--cream) 0%, var(--blue-light) 100%);
             padding: 2rem;
             border-radius: 15px;
-            border-left: 6px solid var(--red);
+            border: 4px solid var(--red);
             margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        #result-content::before {
+            content: '★';
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--red);
         }
         
         #result-content h4 {
@@ -351,6 +520,7 @@
             font-size: 1.1rem;
             line-height: 1.7;
             color: #333;
+            font-family: 'Open Sans', sans-serif;
         }
         
         .survey-restart {
@@ -359,7 +529,7 @@
             color: var(--rust);
             padding: 0.8rem 2rem;
             border-radius: 50px;
-            font-family: 'Libre Baskerville', serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1rem;
             cursor: pointer;
             margin-top: 1rem;
@@ -383,9 +553,10 @@
             background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             animation: slideIn 0.6s ease-out both;
+            position: relative;
         }
         
         @keyframes slideIn {
@@ -406,45 +577,142 @@
         .package:nth-child(5) { animation-delay: 0.5s; }
         
         .package:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+            transform: translateY(-8px) rotate(-1deg);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
         }
         
         .package-header {
             padding: 3rem;
-            background: linear-gradient(135deg, var(--blue-light) 0%, rgba(213, 233, 246, 0.6) 100%);
             position: relative;
             overflow: hidden;
             border-top: 6px solid var(--red);
+            border-bottom: 4px dashed rgba(189, 228, 253, 0.6);
         }
         
+        /* Default header background */
+        .package:nth-child(1) .package-header {
+            background: 
+                linear-gradient(135deg, #ffe5ec 0%, rgba(255, 229, 236, 0.4) 100%),
+                repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(230, 0, 39, 0.05) 15px, rgba(230, 0, 39, 0.05) 30px);
+        }
+        
+        .package:nth-child(2) .package-header {
+            background: 
+                linear-gradient(135deg, var(--blue-light) 0%, rgba(189, 228, 253, 0.4) 100%),
+                repeating-linear-gradient(-45deg, transparent, transparent 12px, rgba(100, 26, 3, 0.03) 12px, rgba(100, 26, 3, 0.03) 24px);
+        }
+        
+        .package:nth-child(3) .package-header {
+            background: 
+                linear-gradient(135deg, #fff4e6 0%, rgba(255, 244, 230, 0.4) 100%),
+                repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(230, 0, 39, 0.04) 20px, rgba(230, 0, 39, 0.04) 40px);
+        }
+        
+        .package:nth-child(4) .package-header {
+            background: 
+                linear-gradient(135deg, #f0f9ff 0%, rgba(240, 249, 255, 0.4) 100%),
+                repeating-linear-gradient(0deg, transparent, transparent 25px, rgba(189, 228, 253, 0.15) 25px, rgba(189, 228, 253, 0.15) 26px);
+        }
+        
+        .package:nth-child(5) .package-header {
+            background: 
+                linear-gradient(135deg, #fef3f3 0%, rgba(254, 243, 243, 0.4) 100%),
+                url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="2" fill="rgba(230,0,39,0.08)"/></svg>');
+        }
+        
+        /* Textured scrapbook background effect */
         .package-header::before {
             content: '';
             position: absolute;
             top: 0;
             right: 0;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
-            transform: translate(30%, -30%);
+            bottom: 0;
+            left: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* Unique decorative corner elements for each package */
+        .package:nth-child(1)::before {
+            content: '✨';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2.5rem;
+            opacity: 0.4;
+            z-index: 1;
+            animation: sparkle-rotate 3s ease-in-out infinite;
+        }
+        
+        .package:nth-child(2)::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2.5rem;
+            opacity: 0;
+            z-index: 1;
+        }
+        
+        .package:nth-child(3)::before {
+            content: '♥';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2.5rem;
+            opacity: 0.3;
+            z-index: 1;
+            color: var(--red);
+        }
+        
+        .package:nth-child(4)::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2.5rem;
+            opacity: 0;
+            z-index: 1;
+        }
+        
+        .package:nth-child(5)::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2.5rem;
+            opacity: 0;
+            z-index: 1;
+        }
+        
+        @keyframes sparkle-rotate {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+        }
+        
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes bounce-subtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.1); opacity: 0.6; }
         }
         
         .package-emoji {
-            font-size: 4rem;
-            margin-bottom: 1rem;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1.5rem;
             display: block;
-            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
-            position: relative;
-            animation: wiggle 3s ease-in-out infinite;
-        }
-        
-        @keyframes wiggle {
-            0%, 100% {
-                transform: rotate(-5deg);
-            }
-            50% {
-                transform: rotate(5deg);
-            }
+            object-fit: contain;
+            filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.1));
         }
         
         .package-title {
@@ -454,6 +722,32 @@
             margin-bottom: 1rem;
             font-weight: 700;
             line-height: 1.2;
+            position: relative;
+        }
+        
+        /* Handwritten-style annotations on packages */
+        .package:nth-child(1) .package-title::after {
+            content: '← Start here!';
+            position: absolute;
+            right: -120px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-5deg);
+            font-family: 'Crimson Text', serif;
+            font-size: 1rem;
+            color: var(--red);
+            font-style: italic;
+            opacity: 0.6;
+            font-weight: 400;
+        }
+        
+        .package:nth-child(3) .package-title::after {
+            content: '♥';
+            position: absolute;
+            right: -40px;
+            top: 0;
+            font-size: 1.5rem;
+            color: var(--red);
+            opacity: 0.4;
         }
         
         .package-positioning {
@@ -461,25 +755,113 @@
             color: var(--red);
             font-style: italic;
             font-weight: 600;
+            font-family: 'Playfair Display', serif;
         }
         
         .package-body {
             padding: 3rem;
+            background: 
+                var(--cream),
+                repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(189, 228, 253, 0.05) 40px, rgba(189, 228, 253, 0.05) 41px);
+            position: relative;
         }
         
-        .package-description {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            color: #333;
+        /* Unique scrapbook elements in each package body */
+        .package:nth-child(1) .package-body::before {
+            content: '✨';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.2;
+            transform: rotate(-15deg);
+        }
+        
+        .package:nth-child(2) .package-body::before {
+            content: '🎯';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.25;
+        }
+        
+        .package:nth-child(3) .package-body::before {
+            content: '💚';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.25;
+        }
+        
+        .package:nth-child(4) .package-body::before {
+            content: '✓';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 4rem;
+            color: var(--blue-light);
+            opacity: 0.3;
+            font-weight: bold;
+        }
+        
+        .package:nth-child(5) .package-body::before {
+            content: '💬';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.25;
+        }
+        
+        /* Add washi tape to alternate packages */
+        .package:nth-child(odd) .package-body::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            width: 80px;
+            height: 35px;
+            background: rgba(230, 0, 39, 0.1);
+            transform: rotate(-5deg) translateY(-50%);
+            border-top: 2px dashed rgba(230, 0, 39, 0.3);
+            border-bottom: 2px dashed rgba(230, 0, 39, 0.3);
+        }
+        
+        .package:nth-child(even) .package-body::after {
+            content: '';
+            position: absolute;
+            top: 30%;
+            right: -10px;
+            width: 80px;
+            height: 35px;
+            background: rgba(189, 228, 253, 0.3);
+            transform: rotate(8deg);
+            border-top: 2px dashed rgba(189, 228, 253, 0.6);
+            border-bottom: 2px dashed rgba(189, 228, 253, 0.6);
         }
         
         .package-section {
             margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .package-section.mini-box {
+            background: white;
+            border: 2px solid var(--blue-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .package-section.mini-box h3 {
+            margin-top: 0;
         }
         
         .package-section h3 {
-            font-family: 'Libre Baskerville', serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.4rem;
             color: var(--rust);
             margin-bottom: 1rem;
@@ -489,6 +871,21 @@
             gap: 0.5rem;
             position: relative;
             padding-left: 1.5rem;
+        }
+        
+        /* Add corner fold to packages 2 and 4 */
+        .package:nth-child(2) .package-header::after,
+        .package:nth-child(4) .package-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 50px 50px;
+            border-color: transparent transparent rgba(255, 255, 255, 0.5) transparent;
+            filter: drop-shadow(-2px -2px 3px rgba(0, 0, 0, 0.1));
         }
         
         .package-section h3::before {
@@ -510,14 +907,23 @@
         }
         
         .package-section h4 {
-            font-family: 'Crimson Text', serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.2rem;
             color: var(--rust);
             margin-top: 1.5rem;
             margin-bottom: 0.8rem;
             font-weight: 600;
             padding-left: 1rem;
-            border-left: 3px solid var(--red);
+            border-left: 4px solid var(--blue-light);
+            background: transparent;
+            padding: 0.5rem 1rem;
+        }
+        
+        .package-section p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
         }
         
         .package-section ul {
@@ -531,10 +937,11 @@
             position: relative;
             font-size: 1.1rem;
             line-height: 1.7;
+            font-family: 'Open Sans', sans-serif;
         }
         
         .package-section li::before {
-            content: '•';
+            content: '●';
             position: absolute;
             left: 0.5rem;
             color: var(--red);
@@ -542,66 +949,43 @@
             line-height: 1.7;
         }
         
-        .quote-block {
-            background: linear-gradient(135deg, rgba(230, 0, 39, 0.08) 0%, rgba(213, 233, 246, 0.2) 100%);
-            padding: 1.5rem 2rem;
-            border-left: 6px solid var(--red);
-            margin: 2rem 0;
-            font-style: italic;
-            font-size: 1.15rem;
-            border-radius: 0 10px 10px 0;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(230, 0, 39, 0.1);
-        }
-        
-        .quote-block::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 15px;
-            font-size: 4rem;
-            color: var(--red);
-            opacity: 0.3;
-            font-family: 'Playfair Display', serif;
-            line-height: 1;
-        }
-        
-        /* Additional Services */
+        /* Additional Services with scrapbook styling */
         .additional-services {
             max-width: 1000px;
             margin: 6rem auto 4rem;
             padding: 3rem 2rem;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-            border: 3px solid var(--red);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: 4px solid var(--red);
             position: relative;
         }
         
         .additional-services::before {
-            content: '';
+            content: 'Keep going! ✨';
             position: absolute;
             top: -15px;
-            right: -15px;
-            width: 80px;
-            height: 80px;
-            background: var(--red);
-            border-radius: 50%;
-            opacity: 0.2;
-            z-index: -1;
+            right: 30px;
+            font-size: 1.2rem;
+            color: var(--red);
+            background: var(--cream);
+            padding: 5px 15px;
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            font-weight: 600;
         }
         
         .additional-services::after {
             content: '';
             position: absolute;
-            bottom: -15px;
-            left: -15px;
-            width: 100px;
-            height: 100px;
-            background: var(--red);
-            border-radius: 50%;
-            opacity: 0.15;
-            z-index: -1;
+            bottom: -10px;
+            left: 40px;
+            width: 80px;
+            height: 30px;
+            background: rgba(230, 0, 39, 0.2);
+            transform: rotate(-3deg);
+            border-top: 2px dashed var(--red);
+            border-bottom: 2px dashed var(--red);
         }
         
         .additional-services h2 {
@@ -614,25 +998,26 @@
         }
         
         .service-item {
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--cream);
+            padding: 1.5rem;
+            background: var(--cream);
+            border: 3px solid var(--blue-light);
+            border-radius: 15px;
             font-size: 1.2rem;
             display: flex;
             align-items: center;
             gap: 1rem;
             transition: transform 0.3s ease;
+            font-family: 'Open Sans', sans-serif;
         }
         
         .service-item:hover {
-            transform: translateX(10px);
-        }
-        
-        .service-item:last-child {
-            border-bottom: none;
+            transform: translateX(10px) rotate(-1deg);
+            background: var(--blue-light);
         }
         
         .service-item strong {
             color: var(--red);
+            font-family: 'Playfair Display', serif;
         }
         
         .service-emoji {
@@ -644,30 +1029,30 @@
         .footer-cta {
             text-align: center;
             padding: 6rem 2rem 4rem;
-            background: linear-gradient(180deg, var(--beige) 0%, var(--blue-light) 100%);
+            background: 
+                linear-gradient(180deg, var(--cream) 0%, rgba(189, 228, 253, 0.3) 100%),
+                repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(189, 228, 253, 0.08) 20px, rgba(189, 228, 253, 0.08) 40px);
             position: relative;
             overflow: hidden;
         }
         
         .footer-cta::before {
-            content: '✦';
+            content: '💡';
             position: absolute;
             top: 20%;
             left: 10%;
             font-size: 3rem;
-            color: var(--red);
-            opacity: 0.4;
+            opacity: 0.25;
             animation: float-slow 4s ease-in-out infinite;
         }
         
         .footer-cta::after {
-            content: '✦';
+            content: '✨';
             position: absolute;
             bottom: 30%;
             right: 15%;
             font-size: 2.5rem;
-            color: var(--red);
-            opacity: 0.3;
+            opacity: 0.25;
             animation: float-slow 5s ease-in-out infinite reverse;
         }
         
@@ -692,6 +1077,7 @@
             font-size: clamp(1.2rem, 3vw, 1.6rem);
             color: var(--red);
             font-style: italic;
+            font-family: 'Playfair Display', serif;
         }
         
         /* Responsive Design */
@@ -705,7 +1091,23 @@
             }
             
             .package-emoji {
-                font-size: 3rem;
+                width: 150px;
+                height: 150px;
+            }
+            
+            .sticky-cta {
+                bottom: 20px;
+                right: 20px;
+                padding: 0.9rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            
+            /* Hide handwritten annotations on mobile */
+            .package:nth-child(1) .package-title::after,
+            .package:nth-child(3) .package-title::after,
+            .package:nth-child(2) .package-section:first-child::after,
+            .package:nth-child(4) .package-section:first-child::after {
+                display: none;
             }
         }
         
@@ -730,18 +1132,22 @@
             <h1>Lindsey Patterson</h1>
             <div class="subtitle">Creative Business Strategist</div>
             <p class="tagline">Helping people turn what they do well into a small business that works</p>
+            <a href="https://calendar.app.google/yK7UyBjdD7Rd3MY69" target="_blank" class="cta-button">Schedule Your Free 15 Min Intro Call</a>
             <div class="pricing-banner">
                 $150 for one session <span class="divider">|</span> $300 for a pack of three
             </div>
-            <a href="https://calendar.app.google/yK7UyBjdD7Rd3MY69" target="_blank" class="cta-button">Schedule Your Free 15 Min Intro Call</a>
         </div>
     </section>
 
+    <!-- Sticky floating CTA -->
+    <a href="https://calendar.app.google/yK7UyBjdD7Rd3MY69" target="_blank" class="sticky-cta" id="sticky-cta">Free Intro Call 📞</a>
+
     <!-- Intro -->
     <section class="intro">
-        <h2>Strategic Business Building</h2>
-        <p>Whether you're just starting out or reshaping an existing business, these strategic sessions are designed to help you clarify your direction, strengthen your positioning, and create offers that actually sell. Each package is focused, practical, and built around what you're already good at.</p>
-        <p style="margin-top: 2rem; font-style: italic; color: var(--rust); font-size: 1.1rem;">This is a sample of what I offer — your session will be tailored to your specific needs.</p>
+        <h2>How We'll Work Together</h2>
+        <p>Most of my work starts with what you already have — your skills, your experience, your ideas, and the work you're proud of — and building a business around that.</p>
+        <p style="margin-top: 1.5rem;">I help you bring clarity to how it all fits together: your positioning, your offers, your marketing, and the content you're sharing. Whether you're just getting started or refining something that's already in motion, the focus is on creating a business that feels cohesive, easy to explain, and set up to grow in a way that actually works for you.</p>
+        <p style="margin-top: 1.5rem; font-style: italic; color: var(--rust); font-size: 1.1rem;">What's outlined here is a snapshot of how I work. Everything is flexible and tailored to you, your business, and what you need most right now.</p>
     </section>
 
     <!-- Interactive Survey -->
@@ -767,7 +1173,7 @@
                 </div>
 
                 <div class="survey-question" data-question="2">
-                    <h3>What would feel like the biggest “exhale” right now?</h3>
+                    <h3>What would feel like the biggest "exhale" right now?</h3>
                     <div class="survey-options">
                         <button class="survey-option" data-next="3" data-score='{"dream":3,"refinement":0,"growth":0,"instagram":1,"content":0}'>
                             💭  Turning what I do into an offer people actually buy
@@ -791,10 +1197,10 @@
                             😰 Uncomfortable - I avoid it or it feels forced
                         </button>
                         <button class="survey-option" data-next="result" data-score='{"dream":1,"refinement":1,"growth":1,"instagram":3,"content":1}'>
-                            🤷🤷 I post, but it’s not translating into clients/purchases
+                            🤷 I post, but it's not translating into clients/purchases
                         </button>
                         <button class="survey-option" data-next="result" data-score='{"dream":2,"refinement":2,"growth":2,"instagram":1,"content":1}'>
-                            ✅ I’m down to create — I just need a plan
+                            ✅ I'm down to create — I just need a plan
                         </button>
                     </div>
                 </div>
@@ -814,12 +1220,12 @@
         <!-- Package 1: Dream Builder -->
         <article class="package reveal" id="dream-builder">
             <div class="package-header">
-                <span class="package-emoji">✨</span>
+                <img src="dream-builder.png" alt="Dream Builder" class="package-emoji">
                 <h2 class="package-title">The Dream Builder Session</h2>
                 <p class="package-positioning">Turn what you're already good at into something real</p>
             </div>
             <div class="package-body">
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>Who this is for</h3>
                     <ul>
                         <li>You have a skill, taste, or instinct people already come to you for</li>
@@ -828,7 +1234,7 @@
                     </ul>
                 </div>
                 
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>What you get</h3>
                     <p>A 60-minute strategic conversation to help you turn what you're naturally good at into a clear business direction.</p>
                     
@@ -841,7 +1247,7 @@
                     </ul>
                 </div>
                 
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>You'll leave with</h3>
                     <p>A confident understanding of what you're building and how to move forward.</p>
                 </div>
@@ -851,12 +1257,12 @@
         <!-- Package 2: Business Refinement -->
         <article class="package reveal" id="business-refinement">
             <div class="package-header">
-                <span class="package-emoji">🧭</span>
+                <img src="business-refinement.png" alt="Business Refinement" class="package-emoji">
                 <h2 class="package-title">The Business Refinement Session</h2>
                 <p class="package-positioning">Clarify your niche, audience, and growth path</p>
             </div>
             <div class="package-body">
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>Who this is for</h3>
                     <ul>
                         <li>You have a solid foundation, but things feel a bit too broad</li>
@@ -865,7 +1271,7 @@
                     </ul>
                 </div>
                 
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>What you get</h3>
                     <p>A strategic working session focused on refining your business model so it's clearer, more intentional, and easier to grow.</p>
                     
@@ -878,7 +1284,7 @@
                     </ul>
                 </div>
                 
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>You'll leave with</h3>
                     <p>A more focused business model and a clearer path for sustainable growth.</p>
                 </div>
@@ -888,12 +1294,12 @@
         <!-- Package 3: Client Growth & Loyalty -->
         <article class="package reveal" id="client-growth">
             <div class="package-header">
-                <span class="package-emoji">🔁</span>
+                <img src="client-growth.png" alt="Client Growth & Loyalty" class="package-emoji">
                 <h2 class="package-title">The Client Growth & Loyalty Sprint</h2>
                 <p class="package-positioning">Build a business people want to come back to</p>
             </div>
             <div class="package-body">
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>Who this is for</h3>
                     <ul>
                         <li>You already offer something valuable, but want stronger client retention</li>
@@ -902,7 +1308,7 @@
                     </ul>
                 </div>
                 
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>What you get</h3>
                     <p>A focused strategy session to design how your business creates loyalty, return clients, and ongoing demand.</p>
                     
@@ -915,7 +1321,7 @@
                     </ul>
                 </div>
                 
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>You'll leave with</h3>
                     <p>A clear client journey and practical ways to grow through relationships.</p>
                 </div>
@@ -925,12 +1331,12 @@
         <!-- Package 4: Instagram Portfolio -->
         <article class="package reveal" id="instagram-portfolio">
             <div class="package-header">
-                <span class="package-emoji">📸</span>
+                <img src="instagram-portfolio.png" alt="Instagram Portfolio" class="package-emoji">
                 <h2 class="package-title">Instagram Portfolio Session</h2>
                 <p class="package-positioning">Turn your profile into a clear reflection of what you do</p>
             </div>
             <div class="package-body">
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>Who this is for</h3>
                     <ul>
                         <li>You do great work, but your profile doesn't fully show it</li>
@@ -939,7 +1345,7 @@
                     </ul>
                 </div>
                 
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>What you get</h3>
                     <p>A strategic session to help your Instagram function more like a portfolio and decision-making tool.</p>
                     
@@ -952,7 +1358,7 @@
                     </ul>
                 </div>
                 
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>You'll leave with</h3>
                     <p>A profile that makes it easy for the right people to understand you — and take action.</p>
                 </div>
@@ -962,12 +1368,12 @@
         <!-- Package 5: Content Confidence -->
         <article class="package reveal" id="content-confidence">
             <div class="package-header">
-                <span class="package-emoji">🎤</span>
+                <img src="content-confidence.png" alt="Content Confidence" class="package-emoji">
                 <h2 class="package-title">Content Confidence Session</h2>
                 <p class="package-positioning">Find a way to show your work that actually feels like you</p>
             </div>
             <div class="package-body">
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>Who this is for</h3>
                     <ul>
                         <li>You know content helps, but it often feels uncomfortable or forced</li>
@@ -976,7 +1382,7 @@
                     </ul>
                 </div>
                 
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>What you get</h3>
                     <p>A supportive session to help you share your work and ideas in a way that feels natural and sustainable.</p>
                     
@@ -989,7 +1395,7 @@
                     </ul>
                 </div>
                 
-                <div class="package-section">
+                <div class="package-section mini-box">
                     <h3>You'll leave with</h3>
                     <p>A simple, realistic content approach you can actually stick to.</p>
                 </div>
@@ -1018,6 +1424,22 @@
     </section>
 
     <script>
+        // Sticky CTA button visibility
+        const stickyCta = document.getElementById('sticky-cta');
+        const hero = document.querySelector('.hero');
+        
+        window.addEventListener('scroll', () => {
+            const heroBottom = hero.offsetTop + hero.offsetHeight;
+            const scrollPosition = window.scrollY + window.innerHeight;
+            
+            // Show sticky button when user scrolls past the hero section
+            if (window.scrollY > heroBottom - 200) {
+                stickyCta.classList.add('visible');
+            } else {
+                stickyCta.classList.remove('visible');
+            }
+        });
+        
         // Survey functionality
         let surveyScores = {
             dream: 0,
