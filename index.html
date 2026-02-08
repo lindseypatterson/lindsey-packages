@@ -30,9 +30,9 @@
 
     <style>
         :root {
-            --blue-light: #9CC5C4;
-            --rust: #5A1A03;
-            --berry: #C94D6F;
+            --blue-light: #8FC0BE;
+            --rust: #641A03;
+            --berry: #B62B5B;
             --olive: #B8A64E;
             --cream: #FFF9F1;
         }
@@ -100,6 +100,26 @@
             overflow: hidden;
         }
         
+        /* Logo watermark in hero */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            width: 80px;
+            height: 80px;
+            background: url('lp-logo.png') center/contain no-repeat;
+            opacity: 0.15;
+            z-index: 1;
+        }
+        
+        @media (min-width: 768px) {
+            .hero::after {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        
         /* Colorful sidebar accent */
         .hero::before {
             content: '';
@@ -117,6 +137,7 @@
                 var(--berry) 66%,
                 var(--berry) 100%
             );
+            z-index: 2;
         }
         
         @media (min-width: 768px) {
@@ -529,7 +550,11 @@
         }
         
         .survey-box {
-            background: var(--olive);
+            background: 
+                linear-gradient(rgba(184, 166, 78, 0.85), rgba(184, 166, 78, 0.85)),
+                url('gold-texture.png');
+            background-size: cover;
+            background-position: center;
             padding: 3rem;
             border-radius: 20px;
             box-shadow: 
@@ -795,7 +820,11 @@
         }
         
         .package:nth-child(3) .package-header {
-            background: var(--olive);
+            background: 
+                linear-gradient(rgba(184, 166, 78, 0.92), rgba(184, 166, 78, 0.92)),
+                url('gold-texture.png');
+            background-size: cover;
+            background-position: center;
             border-bottom: none;
         }
         
@@ -1492,6 +1521,7 @@
 
     <!-- Footer CTA -->
     <section class="footer-cta">
+        <img src="lp-logo.png" alt="LP" style="width: 80px; height: 80px; opacity: 0.4; margin-bottom: 1.5rem;">
         <h2>Ready to get started?</h2>
         <p>Let's build something that works.</p>
         <a href="https://calendar.app.google/yK7UyBjdD7Rd3MY69" target="_blank" class="cta-button">Book Your Free Intro Call</a>
